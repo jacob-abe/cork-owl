@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col mt-8">
-    <span class="font-bold text-sm">Inventory</span>
+    <span class="font-bold text-sm mb-2">Inventory</span>
     <table class="table-fixed">
-      <thead class="table-header-group border-b-[1px] border-gray-10 h-16">
+      <thead class="table-header-group border-y-[1px] border-gray-10 h-16">
         <tr class="text-grey-20 text-sm text-center">
           <th><input type="checkbox" :onchange="toggleSelectAll" /></th>
           <th class="cursor-pointer">
