@@ -7,7 +7,11 @@
       <Icon>
         <IosSearch size="16" />
       </Icon>
-      <span>Search wines, customers here...</span>
+      <input
+        class="bg-white outline-none w-56 placeholder:text-gray-20 text-black"
+        type="text"
+        placeholder="Search wines, customers here..."
+      />
     </div>
     <div class="ml-auto flex">
       <Icon size="24"> <MdNotificationsOutline /> </Icon>
