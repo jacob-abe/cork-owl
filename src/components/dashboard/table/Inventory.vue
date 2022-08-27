@@ -96,7 +96,7 @@
             </Icon>
           </td>
         </tr>
-        <tr>
+        <tr id="expanded">
           <td
             colspan="9"
             v-if="expandedItem.isExpanded"
@@ -223,7 +223,7 @@ export default {
           price: "$72.95",
         },
       ],
-      expandedItem: { id: 0, isExpanded: false },
+      expandedItem: { id: -1, isExpanded: false },
       selectAll: false,
     };
   },
@@ -232,11 +232,23 @@ export default {
       //@ts-expect-error
       let currentExpansion = this.expandedItem.isExpanded;
       //@ts-expect-error
-      this.expandedItem = { id, isExpanded: !currentExpansion };
+      let toExpand = !currentExpansion || id !== this.expandedItem.id;
+      //@ts-expect-error
+      this.expandedItem = {
+        id,
+        isExpanded: toExpand,
+      };
+      if (toExpand) {
+        this.scrollToElement();
+      }
     },
     toggleSelectAll() {
       //@ts-expect-error
       this.selectAll = !this.selectAll;
+    },
+    scrollToElement() {
+      const element = document.getElementById("expanded");
+      element && element.scrollIntoView({ behavior: "smooth" });
     },
   },
 };

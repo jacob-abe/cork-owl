@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-red-20 w-full text-white flex py-3 px-6 items-center">
+  <div
+    class="z-50 fixed bg-red-20 w-full text-white flex py-3 px-6 items-center"
+  >
     <span class="text-lg text-red-10">Cork owl</span>
     <div
       class="bg-white rounded-sm flex justify-center items-center py-1 px-2 text-gray-400 ml-24 space-x-2"

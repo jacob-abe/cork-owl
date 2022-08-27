@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen border-r-2 border-gray-10">
+  <div class="h-[100%] fixed border-r-2 border-gray-10 z-50 mt-14">
     <div v-for="(item, index) in navItems">
       <SideNavItem
         :name="item.name"
