@@ -2,7 +2,7 @@
   <div class="flex space-x-16 mt-4">
     <div v-for="(item, index) in orderData">
       <div
-        :class="`flex justify-between hover:scale-105 card shadow-sm rounded-md space-x-16 border-t-2 ${item.borderColor}`"
+        :class="`flex justify-between hover:scale-105 card shadow-md rounded-md space-x-16 border-t-2 ${item.borderColor}`"
       >
         <div class="flex flex-col">
           <span class="text-sm text-gray-20">{{ item.name }}</span>
