@@ -28,3 +28,20 @@ body {
 .card {
   padding: 1em;
 }
+
+input[type="checkbox"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  background: white;
+  accent-color: #ef4859;
+  height: 16px;
+  width: 16px;
+  border: 1px solid lightgrey;
+}
+
+input[type="checkbox"]:checked {
+  background: #ef4859;
+}
