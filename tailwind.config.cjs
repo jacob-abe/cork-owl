@@ -9,6 +9,9 @@ const COLORS = {
     20: "#8C8CA1",
     30: "#485572",
   },
+  green: {
+    10: "#2FCA72",
+  },
 };
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],

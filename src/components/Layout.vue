@@ -1,8 +1,17 @@
 <template>
   <div class="p-4">
     <span class="text-gray-20 font-bold text-lg">Overview</span>
+    <OrderStats />
+    <SalesDetail />
   </div>
 </template>
 <script lang="ts">
-export default {};
+import OrderStats from "./dashboard/OrderStats.vue";
+import SalesDetail from "./dashboard/sales/SalesDetail.vue";
+export default {
+  components: {
+    OrderStats,
+    SalesDetail,
+  },
+};
 </script>
