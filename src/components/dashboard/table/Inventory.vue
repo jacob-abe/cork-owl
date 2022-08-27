@@ -64,7 +64,7 @@
           </td>
           <td class="text-gray-30 text-sm">
             <span class="px-2 py-[2px] bg-gray-10 rounded-md">{{
-              item.rating.robert
+              item.rating[1].value
             }}</span>
           </td>
           <td>{{ item.vintage }}</td>
@@ -78,7 +78,10 @@
           <td>{{ item.volume }}</td>
           <td>{{ item.cost }}</td>
           <td>{{ item.price }}</td>
-          <td class="cursor-pointer" v-on:click="() => onExpand(index)">
+          <td
+            class="cursor-pointer text-black"
+            v-on:click="() => onExpand(index)"
+          >
             <Icon
               size="16"
               v-if="expandedItem.id == index && expandedItem.isExpanded"
@@ -93,6 +96,21 @@
             </Icon>
           </td>
         </tr>
+        <tr>
+          <td
+            colspan="9"
+            v-if="expandedItem.isExpanded"
+            class="border-[1px] border-gray-10 rounded-xl p-4"
+          >
+            <ExpandedRow
+              :name="inventoryItems[expandedItem.id].name"
+              :region="inventoryItems[expandedItem.id].region"
+              :vintage="inventoryItems[expandedItem.id].vintage"
+              :rating="inventoryItems[expandedItem.id].rating"
+              :stock="inventoryItems[expandedItem.id].stock"
+            />
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -102,12 +120,14 @@
 import { ArrowSort16Regular } from "@vicons/fluent";
 import { ChevronDownOutline, ChevronUpOutline } from "@vicons/ionicons5";
 import { Icon } from "@vicons/utils";
+import ExpandedRow from "./ExpandedRow.vue";
 export default {
   components: {
     ChevronUpOutline,
     ChevronDownOutline,
     ArrowSort16Regular,
     Icon,
+    ExpandedRow,
   },
   data() {
     return {
@@ -116,12 +136,12 @@ export default {
           name: "Staglin Family Vineyard",
           region: "France · Sauternes",
           vintage: "1950's",
-          rating: {
-            james: "JS 95",
-            robert: "RP 80",
-            antonio: "AG 75",
-            spectator: "WS 79",
-          },
+          rating: [
+            { name: "james", value: "JS 95" },
+            { name: "robert", value: "RP 80" },
+            { name: "antonio", value: "AG 75" },
+            { name: "spectator", value: "WS 79" },
+          ],
           stock: [
             { name: "Possimus", amount: 3 },
             { name: "Downtown condo", amount: 5 },
@@ -134,12 +154,12 @@ export default {
           name: "Bibi Graetz Testamatta Tos",
           region: "Chianti · Blends and Other",
           vintage: "2015",
-          rating: {
-            james: "JS 95",
-            robert: "RP 80",
-            antonio: "AG 75",
-            spectator: "WS 79",
-          },
+          rating: [
+            { name: "james", value: "JS 95" },
+            { name: "robert", value: "RP 80" },
+            { name: "antonio", value: "AG 75" },
+            { name: "spectator", value: "WS 79" },
+          ],
           stock: [
             { name: "Possimus", amount: 43 },
             { name: "Downtown condo", amount: 95 },
@@ -152,12 +172,12 @@ export default {
           name: "Cayuse Syrah en Chamber",
           region: "Syrah",
           vintage: "2012",
-          rating: {
-            james: "JS 95",
-            robert: "RP 80",
-            antonio: "AG 75",
-            spectator: "WS 79",
-          },
+          rating: [
+            { name: "james", value: "JS 95" },
+            { name: "robert", value: "RP 80" },
+            { name: "antonio", value: "AG 75" },
+            { name: "spectator", value: "WS 79" },
+          ],
           stock: [
             { name: "Possimus", amount: 43 },
             { name: "Downtown condo", amount: 95 },
@@ -170,12 +190,12 @@ export default {
           name: "K Vintners Syrah Cattle king",
           region: "France · Sauternes",
           vintage: "2010",
-          rating: {
-            james: "JS 95",
-            robert: "RP 80",
-            antonio: "AG 75",
-            spectator: "WS 79",
-          },
+          rating: [
+            { name: "james", value: "JS 95" },
+            { name: "robert", value: "RP 80" },
+            { name: "antonio", value: "AG 75" },
+            { name: "spectator", value: "WS 79" },
+          ],
           stock: [
             { name: "Possimus", amount: 43 },
             { name: "Downtown condo", amount: 95 },
@@ -188,12 +208,12 @@ export default {
           name: "L'Ecole No. 41 Ferguson",
           region: "United state · California · Blends",
           vintage: "2004",
-          rating: {
-            james: "JS 95",
-            robert: "RP 80",
-            antonio: "AG 75",
-            spectator: "WS 79",
-          },
+          rating: [
+            { name: "james", value: "JS 95" },
+            { name: "robert", value: "RP 80" },
+            { name: "antonio", value: "AG 75" },
+            { name: "spectator", value: "WS 79" },
+          ],
           stock: [
             { name: "Possimus", amount: 43 },
             { name: "Downtown condo", amount: 95 },
@@ -213,7 +233,6 @@ export default {
       let currentExpansion = this.expandedItem.isExpanded;
       //@ts-expect-error
       this.expandedItem = { id, isExpanded: !currentExpansion };
-      console.log(id);
     },
     toggleSelectAll() {
       //@ts-expect-error

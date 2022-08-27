@@ -7,9 +7,9 @@
   </div>
 </template>
 <script lang="ts">
-import Inventory from "./dashboard/Inventory.vue";
 import OrderStats from "./dashboard/OrderStats.vue";
 import SalesDetail from "./dashboard/sales/SalesDetail.vue";
+import Inventory from "./dashboard/table/Inventory.vue";
 export default {
   components: {
     OrderStats,
