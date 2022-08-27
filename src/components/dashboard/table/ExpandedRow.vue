@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col w-1/2">
+      <div class="flex flex-col w-1/2 border-l-[1px] border-gray-10 pl-4">
         <span class="text-gray-20 text-sm">Stock</span>
         <div class="grid grid-cols-3 space-y-1 mt-4">
           <div v-for="(item, index) in stock">
